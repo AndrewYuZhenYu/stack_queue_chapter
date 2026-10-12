@@ -1,9 +1,9 @@
 #include <stdexcept>
 #include <string>
-#include "队列.h"
-#include "表达式.h"
-#include "栈.h"
-#include "算法应用.h"
+#include "queue.h"
+#include "expression.h"
+#include "stack.h"
+#include "applications.h"
 
 void check(bool condition, const std::string& message) {
     if (!condition) throw std::runtime_error(message);

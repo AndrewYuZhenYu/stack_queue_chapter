@@ -1,5 +1,5 @@
 #include <iostream>
-#include "算法应用.h"
+#include "applications.h"
 
 int main() {
     for (int value : {1348, 0, -31}) {

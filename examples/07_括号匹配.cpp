@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "算法应用.h"
+#include "applications.h"
 
 int main() {
     for (const std::string& text : {"a[(b+c)*{d-e}]", "([)]", "(()", ")("})

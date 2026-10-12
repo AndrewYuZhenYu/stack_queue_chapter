@@ -1,7 +1,7 @@
-#include "算法应用.h"
+#include "applications.h"
 
-#include "栈.h"
-#include "队列.h"
+#include "stack.h"
+#include "queue.h"
 
 #include <array>
 #include <cstdlib>

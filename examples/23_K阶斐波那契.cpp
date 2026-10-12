@@ -1,5 +1,5 @@
 #include <iostream>
-#include "算法应用.h"
+#include "applications.h"
 
 int main() {
     const int k = 3;

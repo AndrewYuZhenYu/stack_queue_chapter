@@ -1,5 +1,5 @@
 #include <iostream>
-#include "队列.h"
+#include "queue.h"
 
 int main() {
     CountingQueue queue(3);

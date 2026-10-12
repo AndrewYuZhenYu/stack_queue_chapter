@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "算法应用.h"
+#include "applications.h"
 
 int main() {
     const std::vector<std::string> maze{

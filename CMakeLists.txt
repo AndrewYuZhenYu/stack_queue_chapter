@@ -6,10 +6,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(chapter3_core STATIC
-    src/栈.cpp
-    src/队列.cpp
-    src/表达式.cpp
-    src/算法应用.cpp
+    src/stack.cpp
+    src/queue.cpp
+    src/expression.cpp
+    src/applications.cpp
 )
 target_include_directories(chapter3_core PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 if(MSVC)

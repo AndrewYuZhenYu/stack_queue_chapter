@@ -24,10 +24,10 @@ ctest --test-dir build --output-on-failure
 
 | 声明 | 实现 | 演示 |
 | --- | --- | --- |
-| `include/栈.h` | `src/栈.cpp` | 01–04，其他应用也会调用 |
-| `include/队列.h` | `src/队列.cpp` | 15–19，队列应用也会调用 |
-| `include/表达式.h` | `src/表达式.cpp` | 13–14 |
-| `include/算法应用.h` | `src/算法应用.cpp` | 05–12，20–23 |
+| `include/stack.h` | `src/stack.cpp` | 01–04，其他应用也会调用 |
+| `include/queue.h` | `src/queue.cpp` | 15–19，队列应用也会调用 |
+| `include/expression.h` | `src/expression.cpp` | 13–14 |
+| `include/applications.h` | `src/applications.cpp` | 05–12，20–23 |
 
 CMake 将四个实现文件编译为 `chapter3_core` 库，所有演示和测试目标都链接这个库。演示文件只放示例输入、调用和结果展示。
 

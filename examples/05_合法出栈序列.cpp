@@ -1,5 +1,5 @@
 #include <iostream>
-#include "算法应用.h"
+#include "applications.h"
 
 int main() {
     std::cout << "1,2,3 的合法出栈序列；S=入栈，X=出栈\n";

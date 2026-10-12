@@ -1,5 +1,5 @@
 #include <iostream>
-#include "栈.h"
+#include "stack.h"
 
 int main() {
     FixedStack stack(3);
