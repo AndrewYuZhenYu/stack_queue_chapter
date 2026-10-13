@@ -10,6 +10,7 @@ add_library(chapter3_core STATIC
     src/queue.cpp
     src/expression.cpp
     src/applications.cpp
+    src/interactive.cpp
 )
 target_include_directories(chapter3_core PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 if(MSVC)

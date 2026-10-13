@@ -1,9 +1,12 @@
 #include <stdexcept>
 #include <string>
+#include <iostream>
+#include <sstream>
 #include "queue.h"
 #include "expression.h"
 #include "stack.h"
 #include "applications.h"
+#include "interactive.h"
 
 void check(bool condition, const std::string& message) {
     if (!condition) throw std::runtime_error(message);
@@ -51,4 +54,17 @@ int main() {
     KStepResult result = k_step_fibonacci(3, 20);
     check(result.terms.back() == 13 && result.next == 24, "k-step bound");
     check(result.window == std::vector<int>({4, 7, 13}), "k-step queue window");
+
+    std::istringstream scripted_input("abc\n99\n3\n");
+    std::ostringstream captured_output;
+    auto* original_input = std::cin.rdbuf(scripted_input.rdbuf());
+    auto* original_output = std::cout.rdbuf(captured_output.rdbuf());
+    int selected = 0;
+    bool accepted = read_int_range("选择：", 1, 5, selected);
+    std::cin.rdbuf(original_input);
+    std::cout.rdbuf(original_output);
+    std::cin.clear();
+    check(accepted && selected == 3, "interactive integer retry");
+    check(captured_output.str().find("请输入") != std::string::npos,
+          "interactive invalid input feedback");
 }

@@ -1,6 +1,6 @@
 # 数据结构第 3 章：栈与队列代码演示
 
-这是一个标准 C++17 / CMake 项目。用 CLion 打开**本目录**，等待 CMake 加载完成，在右上角选择任意 `demo_01` 至 `demo_23` 运行配置即可。每个中文命名的 `examples/*.cpp` 都有独立的 `main`，互不依赖运行顺序，也无需输入。
+这是一个标准 C++17 / CMake 项目。用 CLion 打开**本目录**，等待 CMake 加载完成，在右上角选择任意 `demo_01` 至 `demo_23` 运行配置即可。每个中文命名的 `examples/*.cpp` 都有独立的 `main`，运行后根据提示输入数据或选择操作。
 
 代码根据所给 PPT 的知识点重新设计，没有复制其中的伪代码。数据结构的元素统一使用 `int`；表达式、编辑器、汉诺塔等题目本身需要字符时才使用 `char` 或 `std::string`。项目没有使用 `typedef` 或类型别名。空栈、空队列返回 `std::optional<int>`；定长容器满时返回 `false`。内存由标准容器或智能指针管理。
 
@@ -16,7 +16,14 @@ cmake --build build
 ctest --test-dir build --output-on-failure
 ```
 
-每个演示目标都注册为 CTest 检查项；`core_checks` 另检查边界条件与算法结果。
+每个演示目标都注册为 CTest 检查项；`core_checks` 另检查边界条件与算法结果。CTest 会以输入结束状态检查演示能否正常退出，实际交互请在 CLion 的运行窗口操作。
+
+## 交互方式
+
+- `demo_01`、`demo_15`：输入一组整数，观察出栈或出队顺序，可以继续输入另一组。
+- `demo_02`–`demo_04`、`demo_16`–`demo_19`：在菜单中反复入栈或入队、删除、查看状态；输入 `0` 退出。可以亲自触发栈满、队空、回绕和假溢出。
+- 其他目标：按提示输入表达式、迷宫、图、棋盘大小等参数，更换数据后可重新运行。文本输入一般可直接回车退出；遇到“回车继续，输入 q 退出”时输入 `q` 结束。
+- 输入非法整数或超出范围时会提示重输；在输入处按 `Ctrl+D`（Windows 为 `Ctrl+Z` 后回车）可退出。
 
 ## 三文件结构
 
@@ -28,8 +35,9 @@ ctest --test-dir build --output-on-failure
 | `include/queue.h` | `src/queue.cpp` | 15–19，队列应用也会调用 |
 | `include/expression.h` | `src/expression.cpp` | 13–14 |
 | `include/applications.h` | `src/applications.cpp` | 05–12，20–23 |
+| `include/interactive.h` | `src/interactive.cpp` | 所有交互演示 |
 
-CMake 将四个实现文件编译为 `chapter3_core` 库，所有演示和测试目标都链接这个库。演示文件只放示例输入、调用和结果展示。
+CMake 将实现文件编译为 `chapter3_core` 库，所有演示和测试目标都链接这个库。演示文件负责输入、菜单、调用和结果展示。
 
 ## 示例索引
 
@@ -70,4 +78,4 @@ CMake 将四个实现文件编译为 `chapter3_core` 库，所有演示和测试
 
 ## 阅读建议
 
-先运行 `01`、`02`、`15` 理解操作顺序，再比较 `16`、`17`、`18` 的空/满判定；随后看应用示例。每个示例都是单独的小程序，想修改数据时直接改对应 `.cpp` 的 `main` 即可。
+先运行 `demo_01`、`demo_02`、`demo_15` 理解操作顺序，再比较 `demo_16`、`demo_17`、`demo_18` 的空/满判定；随后看应用示例。各程序可以直接用运行时输入做实验，无需为了更换数据修改源码。
